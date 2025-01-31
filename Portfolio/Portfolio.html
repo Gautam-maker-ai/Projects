@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <!-- <link rel="stylesheet" href="portfolio/css/skins/color-1.css" /> -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="C:\Users\Gautam Dhiman\Documents\CSS\portfolio\css\skins\color-1.css"
+      class="alternate-style"
+      title="color-1"
+    />
+    <link
+      rel="stylesheet"
+      href="C:\Users\Gautam Dhiman\Documents\CSS\portfolio\css\skins\color-2.css"
+      class="alternate-style"
+      title="color-2"
+      disabled
+    />
+    <link
+      rel="stylesheet"
+      href="C:\Users\Gautam Dhiman\Documents\CSS\portfolio\css\skins\color-3.css"
+      class="alternate-style"
+      title="color-3"
+      disabled
+    />
+    <link
+      rel="stylesheet"
+      href="C:\Users\Gautam Dhiman\Documents\CSS\portfolio\css\skins\color-4.css"
+      class="alternate-style"
+      title="color-4"
+      disabled
+    />
+    <link
+      rel="stylesheet"
+      href="C:\Users\Gautam Dhiman\Documents\CSS\portfolio\css\skins\color-5.css"
+      class="alternate-style"
+      title="color-5"
+      disabled
+    />
+
+    <link
+      rel="stylesheet"
+      href="C:\Users\Gautam Dhiman\Documents\CSS\portfolio\css\style-switcher.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Clicker+Script&family=Poppins:wght@200;300;400;500;600;700&display=swap");
+      :root {
+        --bg-black-900: #f2f2fc;
+        --bg-black-100: #fdf9ff;
+        --bg-black-50: #e8dfec;
+        --text-black-900: #302e4d;
+        --text-black-700: #504e70;
+      }
+      body.dark {
+        --bg-black-900: #151515;
+        --bg-black-100: #222222;
+        --bg-black-50: #393939;
+        --text-black-900: #ffffff;
+        --text-black-700: #e9e9e9;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        line-height: 1.5;
+        font-size: 16px;
+        font-family: "Poppins", sans-serif;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        outline: none;
+        text-decoration: none;
+        box-sizing: border-box;
+      }
+      ::before,
+      ::after {
+        box-sizing: border-box;
+      }
+      .section {
+        background: var(--bg-black-900);
+        min-height: 100vh;
+        display: block;
+        padding: 0 30px;
+        opacity: 1;
+        position: fixed;
+        left: 270px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        transition: all 0.3s ease;
+      }
+      .section.back-section {
+        z-index: 1;
+      }
+      .section.active {
+        z-index: 2;
+        opacity: 1;
+        animation: slideSection 1s ease;
+      }
+      @keyframes slideSection {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(0%);
+        }
+      }
+      .hidden {
+        display: none !important;
+      }
+
+      ul {
+        list-style: none;
+      }
+      .padd-15 {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .container {
+        max-width: 1100px;
+        width: 100%;
+        margin: auto;
+      }
+      .section .container {
+        padding-top: 60px;
+        padding-bottom: 70px;
+      }
+      .section-title {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 60px;
+      }
+      .section-title h2 {
+        font-size: 40px;
+        color: var(--text-black-900);
+        font-weight: 700;
+        position: relative;
+      }
+      .section-title h2::before {
+        content: "";
+        height: 4px;
+        width: 50px;
+        background-color: var(--skin-color);
+        position: absolute;
+        top: 100%;
+        left: 0;
+      }
+      .section-title h2::after {
+        content: "";
+        height: 4px;
+        width: 25px;
+        background-color: var(--skin-color);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 8px;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -15px;
+        margin-right: -15px;
+        position: relative;
+      }
+      .btn {
+        font-size: 16px;
+        font-weight: 500;
+        padding: 12px 35px;
+        background: var(--skin-color);
+        color: white;
+        border-radius: 40px;
+        display: inline-block;
+        border: none;
+        white-space: nowrap;
+        transition: all 0.3s ease;
+      }
+      .btn:hover {
+        transform: scale(1.05);
+      }
+      .shadow-dark {
+        box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+      }
+      /*aside*/
+      .aside {
+        width: 270px;
+        background: var(--bg-black-100);
+        position: fixed;
+        left: 0;
+        top: 0;
+        padding: 30px;
+        height: 100%;
+        display: flex;
+        border-right: 1px solid var(--bg-black-50);
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        transition: all 0.3s ease;
+      }
+      .aside .logo {
+        position: absolute;
+        top: 50px;
+        font-size: 30px;
+        text-transform: capitalize;
+      }
+      .aside .logo a {
+        color: var(--text-black-900);
+        font-weight: 700;
+        padding: 15px 20px;
+        font-size: 30px;
+        letter-spacing: 5px;
+        position: relative;
+      }
+      .aside .logo a span {
+        font-family: "Clicker Script", cursive;
+        font-size: 40px;
+      }
+      .aside .logo a::before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-bottom: 5px solid var(--skin-color);
+        border-left: 5px solid var(--skin-color);
+        bottom: 0;
+        left: 0;
+      }
+      .aside .logo a::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-top: 5px solid var(--skin-color);
+        border-right: 5px solid var(--skin-color);
+        top: 0;
+        right: 0;
+      }
+      .aside .nav-toggler {
+        height: 40px;
+        width: 45px;
+        border: 1px solid var(--bg-black-50);
+        cursor: pointer;
+        position: fixed;
+        top: 20px;
+        left: 300px;
+        border-radius: 5px;
+        background: var(--bg-black-100);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+      .aside .nav-toggler span {
+        height: 2px;
+        width: 18px;
+        background: var(--skin-color);
+        display: inline-block;
+        position: relative;
+      }
+      .aside .nav-toggler.open span {
+        background-color: transparent;
+      }
+      .aside .nav-toggler span::before {
+        content: "";
+        height: 2px;
+        width: 18px;
+        background: var(--skin-color);
+        position: absolute;
+        top: -6px;
+        left: 0;
+      }
+      .aside .nav-toggler.open span::before {
+        transform: rotate(45deg);
+        top: 0;
+      }
+      .aside .nav-toggler span::after {
+        content: "";
+        height: 2px;
+        width: 18px;
+        background: var(--skin-color);
+        position: absolute;
+        top: 6px;
+        left: 0;
+      }
+      .aside .nav-toggler.open span::after {
+        transform: rotate(-45deg);
+        top: 0;
+      }
+      .aside .nav {
+        margin-top: 50px;
+      }
+      .aside .nav li {
+        margin-bottom: 20px;
+        display: block;
+      }
+      .aside .nav li a {
+        font-size: 16px;
+        font-weight: 600;
+        display: block;
+        border-bottom: 1px solid var(--bg-black-50);
+        color: var(--text-black-900);
+        padding: 5px 15px;
+      }
+      .aside .nav li a.active {
+        color: var(--skin-color);
+      }
+      .aside .nav li a i {
+        margin-right: 15px;
+      }
+      /*HOME*/
+      .home {
+        min-height: 100vh;
+        display: flex;
+        color: var(--text-black-900);
+      }
+      .home .home-info {
+        flex: 0 0 60%;
+        max-width: 60%;
+      }
+      h3.hello {
+        font-size: 28px;
+        margin: 15px 0;
+      }
+      h3.hello span {
+        font-size: 30px;
+        font-family: "Clicker Script", cursive;
+        font-size: 700;
+        color: var(--skin-color);
+      }
+      h3.my-profession {
+        font-size: 30px;
+        margin: 15px 0;
+      }
+      .typing {
+        color: var(--skin-color);
+      }
+      .home-info p {
+        margin-bottom: 70px;
+        font-size: 20px;
+        color: var(--text-black-700);
+      }
+      .home .home-img {
+        flex: 0 0 40%;
+        max-width: 40%;
+        text-align: center;
+        position: relative;
+      }
+      .home-img::after {
+        content: "";
+        position: absolute;
+        height: 80px;
+        width: 80px;
+        border-bottom: 10px solid var(--skin-color);
+        border-right: 10px solid var(--skin-color);
+        right: 20px;
+        bottom: -40px;
+      }
+      .home-img::before {
+        content: "";
+        position: absolute;
+        height: 80px;
+        border-top: 10px solid var(--skin-color);
+        width: 80px;
+        border-left: 10px solid var(--skin-color);
+        left: -20px;
+        top: -40px;
+      }
+      .home .home-img img {
+        margin: auto;
+        border-radius: 5px;
+        height: 400px;
+      }
+      .about .about-content {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .about .about-content .about-text {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .about .about-content .about-text h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        font-weight: 700;
+        color: var(--text-black-900);
+      }
+      .about .about-content .about-text h3 span {
+        color: var(--skin-color);
+      }
+      .about .about-content .about-text p {
+        font-size: 16px;
+        line-height: 25px;
+        color: var(--text-black-700);
+      }
+      .about .about-content .personal-info {
+        flex: 0 0 60%;
+        max-width: 60%;
+        margin-top: 40px;
+      }
+      .about .about-content .personal-info .item-info {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+      .about .about-content .personal-info .item-info p {
+        font-weight: 600;
+        padding: 10px 0;
+        font-size: 16px;
+        color: var(--text-black-900);
+        border-bottom: 1px solid var(--bg-black-50);
+      }
+      .about .about-content .personal-info .item-info p span {
+        font-weight: 400;
+        color: var(--text-black-700);
+        margin-left: 4px;
+        display: inline-block;
+      }
+      .about .about-content .personal-info .buttons {
+        margin-top: 30px;
+      }
+      .about .about-content .personal-info .buttons .btn {
+        margin-top: 10px;
+      }
+      .about .about-content .skills {
+        flex: 0 0 40%;
+        max-width: 40%;
+        margin-top: 40px;
+      }
+      .about .about-content .skills .skill-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .about .about-content .skills .skill-item h5 {
+        line-height: 40px;
+        font-weight: 600;
+        font-size: 16px;
+        color: var(--text-black-900);
+        text-transform: capitalize;
+      }
+      .about .about-content .skills .skill-item .progress {
+        background-color: var(--bg-black-50);
+        height: 7px;
+        border-radius: 4px;
+        width: 100%;
+        position: relative;
+      }
+      .about .about-content .skills .skill-item {
+        margin-bottom: 25px;
+      }
+      .about .about-content .skills .skill-item .progress .progress-in {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        border-radius: 4px;
+        background-color: var(--skin-color);
+      }
+      .about .about-content .skills .skill-item .skill-percent {
+        position: absolute;
+        right: 0;
+        color: var(--text-black-900);
+        top: -40px;
+        font-weight: 400;
+        line-height: 40px;
+      }
+      .about .about-content .education,
+      .about .about-content .experience {
+        flex: 0 0 50%;
+        max-width: 50%;
+        margin-top: 30px;
+      }
+      .about .about-content h3.title {
+        font-size: 24px;
+        margin-bottom: 30px;
+        font-weight: 700;
+        color: var(--text-black-900);
+      }
+      .about .about-content .timeline-box {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .about .about-content .timeline {
+        background-color: var(--bg-black-100);
+        padding: 30px 15px;
+        border: 1px solid var(--bg-black-50);
+        border-radius: 10px;
+        width: 100%;
+        position: relative;
+      }
+      .about .about-content .timeline .timeline-item {
+        position: relative;
+        padding-left: 37px;
+        padding-bottom: 50px;
+      }
+      .about .about-content .timeline .timeline-item:last-child {
+        padding-bottom: 0;
+      }
+      .about .about-content .timeline .timeline-item::before {
+        content: "";
+        width: 1px;
+        position: absolute;
+        height: 100%;
+        left: 7px;
+        top: 0;
+        background-color: var(--skin-color);
+      }
+      .about .about-content .timeline .circle-dot {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        background-color: var(--skin-color);
+      }
+      .about .about-content .timeline .timeline-date {
+        font-weight: 400;
+        font-size: 14px;
+        margin-bottom: 12px;
+        color: var(--text-black-700);
+      }
+      .about .about-content .timeline .timeline-date .fa {
+        margin-right: 5px;
+      }
+      .about .about-content .timeline .timeline-title {
+        font-weight: 700;
+        font-size: 18px;
+        margin-bottom: 15px;
+        text-transform: capitalize;
+        color: var(--text-black-900);
+      }
+      .about .about-content .timeline .timeline-text {
+        line-height: 25px;
+        font-size: 16px;
+        text-align: justify;
+        color: var(--text-black-700);
+      }
+      /*service*/
+      .service .container {
+        padding-bottom: 40px;
+      }
+      .service .service-item {
+        margin-bottom: 30px;
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
+      }
+      .service .service-item .service-item-inner {
+        background-color: var(--bg-black-100);
+        border: 1px solid var(--bg-black-50);
+        border-radius: 10px;
+        padding: 30px 15px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+      .service .service-item .service-item-inner:hover {
+        box-shadow: 0 0 20px rgba(48, 47, 77, 0.15);
+      }
+      .service .service-item .service-item-inner .icon {
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+      .service .service-item .service-item-inner .icon .fa {
+        font-size: 40px;
+        line-height: 60px;
+        color: var(--skin-color);
+        transition: all 0.3s ease;
+      }
+      .service .service-item .service-item-inner:hover .icon {
+        background-color: var(--skin-color);
+      }
+      .service .service-item .service-item-inner:hover .icon .fa {
+        font-size: 25px;
+        color: #ffffff;
+      }
+      .service .service-item .service-item-inner h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: var(--text-black-900);
+        font-weight: 700;
+        text-transform: capitalize;
+      }
+      .service .service-item .service-item-inner p {
+        font-size: 16px;
+        color: var(--text-black-700);
+        line-height: 25px;
+      }
+      /*Portfolio*/
+      .portfolio .portfolio-heading {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 40px;
+      }
+      .portfolio .portfolio-heading h2 {
+        color: var(--text-black-900);
+        font-weight: 500;
+      }
+      .portfolio .portfolio-item {
+        flex: 0 0 72%;
+        max-width: 50%;
+        margin-bottom: 30px;
+      }
+      .portfolio .portfolio-item-inner {
+        border: 6px solid var(--bg-black-100);
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .portfolio .portfolio-item-local {
+        max-width: 65%;
+      }
+      /*Contact*/
+      .contact-title {
+        color: var(--skin-color);
+        text-align: center;
+        font-size: 25px;
+        margin-bottom: 20px;
+      }
+      .contact-sub-title {
+        color: var(--text-black-900);
+        text-align: center;
+        font-size: 15px;
+        margin-bottom: 60px;
+      }
+      .contact .contact-info-item {
+        flex: 0 0 25%;
+        max-width: 25%;
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      .contact .contact-info-item .icon {
+        display: inline-block;
+      }
+      .contact .contact-info-item .icon .fa {
+        font-size: 25px;
+        color: var(--skin-color);
+      }
+      .contact .contact-info-item h4 {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--text-black-900);
+        text-transform: capitalize;
+        margin: 15px 0px 5px;
+      }
+      .contact .contact-info-item p {
+        font-size: 16px;
+        line-height: 25px;
+        color: var(--text-black-700);
+        font-weight: 400;
+      }
+      .contact .contact-form {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .contact .contact-form .col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+      .contact .contact-form .col-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .contact .contact-form .form-item {
+        margin-bottom: 30px;
+      }
+      .contact .contact-form .form-item .form-control {
+        width: 100%;
+        height: 50px;
+        border-radius: 25px;
+        background-color: var(--bg-black-100);
+        border: 1px solid var(--bg-black-50);
+        padding: 10px 25px;
+        font-size: 16px;
+        color: var(--text-black-700);
+        transition: all 0.3s ease;
+      }
+      .contact .contact-form .form-item .form-control:focus {
+        box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+      }
+      .contact .contact-form .form-item textarea.form-control {
+        height: 140px;
+      }
+      .contact .contact-form .btn {
+        height: 50px;
+        padding: 0 50px;
+      }
+      @media (max-width: 1199px) {
+        .section .container {
+          padding-top: 70px;
+        }
+        .aside {
+          left: -270px;
+        }
+        .aside.open {
+          left: 0;
+        }
+        .aside .nav-toggler {
+          display: flex;
+          left: 30px;
+        }
+        .aside .nav-toggler.open {
+          left: 300px;
+        }
+        .section {
+          left: 0;
+        }
+        .section.open {
+          left: 270px;
+        }
+        .about .about-content .personal-info .item-info p span {
+          display: block;
+          margin-left: 0;
+        }
+      }
+      @media (max-width: 991px) {
+        .contact .contact-info-item,
+        .portfolio .portfolio-item,
+        .service .service-item {
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+        .home .home-info {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+        .home .home-img {
+          display: none;
+        }
+      }
+      @media (max-width: 767px) {
+        .contact .contact-form .col-6,
+        .contact .contact-info-item,
+        .portfolio .portfolio-item,
+        .service .service-item,
+        .about .about-content .experience,
+        .about .about-content .education,
+        .about .about-content .skills,
+        .about .about-content .personal-info {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-conatainer">
+      <div class="aside">
+        <div class="logo">
+          <a href="#"><span>G</span>autam</a>
+        </div>
+        <div class="nav-toggler">
+          <span></span>
+        </div>
+        <ul class="nav">
+          <li>
+            <a href="#home" class="active"><i class="fa fa-home"></i>Home</a>
+          </li>
+          <li>
+            <a href="#about"><i class="fa fa-user"></i>About</a>
+          </li>
+          <li>
+            <a href="#services"><i class="fa fa-list"></i>Service</a>
+          </li>
+          <li>
+            <a href="#portfolio"><i class="fa fa-briefcase"></i>Portfolio</a>
+          </li>
+          <li>
+            <a href="#contact"><i class="fa fa-comments"></i>Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="main-content">
+        <section class="home active section" id="home">
+          <div class="container">
+            <div class="row">
+              <div class="home-info padd-15">
+                <h3 class="hello">
+                  Hello, my name is <span class="name">Gautam Dhiman</span>
+                </h3>
+                <h3 class="my-profession">
+                  I' m a <span class="typing">Web Designer</span>
+                </h3>
+                <p>
+                  I'm a web designer with extensive experience for over 8
+                  months. My expertise is to create and website design,graphic
+                  design, and many more....
+                </p>
+                <a href="#" class="btn">Download CV</a>
+              </div>
+              <div class="home-img padd-15">
+                <img
+                  src="c:\Users\Gautam Dhiman\Documents\portfolio\images\my.png.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="about section" id="about">
+          <div class="container">
+            <div class="row">
+              <div class="section-title padd-15">
+                <h2>About me</h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="about-content padd-15">
+                <div class="row">
+                  <div class="about-text padd-15">
+                    <h3>I'm Gautam Dhiman and <span>Web Developer</span></h3>
+                    <p>
+                      "Welcome to my portfolio! I am a dedicated professional
+                      with a passion for Web Developer, bringing creativity and
+                      innovation to every project. I thrive on collaborating
+                      with diverse teams to deliver impactful results. My work
+                      reflects a commitment to quality, attention to detail, and
+                      a deep understanding of client needs. Explore my projects
+                      to see how I can contribute to your vision and drive
+                      success in our endeavors together.
+                    </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="personal-info padd-15">
+                    <div class="row">
+                      <div class="item-info padd-15">
+                        <p>Birthday: <span>28 oct 2006</span></p>
+                      </div>
+                      <div class="item-info padd-15">
+                        <p>Age: <span>18</span></p>
+                      </div>
+                      <div class="item-info padd-15">
+                        <p>Website: <span>www.domain.com</span></p>
+                      </div>
+                      <div class="item-info padd-15">
+                        <p>
+                          Email: <span>gautamdhiman8708311909@gmail.com</span>
+                        </p>
+                      </div>
+                      <div class="item-info padd-15">
+                        <p>Degree: <span>CSE-DS</span></p>
+                      </div>
+                      <div class="item-info padd-15">
+                        <p>Phone: <span>+91 8708311909 </span></p>
+                      </div>
+                      <div class="item-info padd-15">
+                        <p>City: <span>Ambala Cantt</span></p>
+                      </div>
+                      <div class="item-info padd-15">
+                        <p>Freelnace: <span>Not-Available</span></p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="buttons padd-15">
+                        <a
+                          href="#contact"
+                          data-section-index="1"
+                          class="btn hire-me"
+                          >Hire me</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="skills padd-15">
+                    <div class="row">
+                      <div class="skill-item padd-15">
+                        <h5>CSS</h5>
+                        <div class="progress">
+                          <div class="progress-in" style="width: 92%"></div>
+                          <div class="skill-percent">92%</div>
+                        </div>
+                      </div>
+                      <div class="skill-item padd-15">
+                        <h5>HTML</h5>
+                        <div class="progress">
+                          <div class="progress-in" style="width: 95%"></div>
+                          <div class="skill-percent">95%</div>
+                        </div>
+                      </div>
+                      <div class="skill-item padd-15">
+                        <h5>Javascript</h5>
+                        <div class="progress">
+                          <div class="progress-in" style="width: 96%"></div>
+                          <div class="skill-percent">96%</div>
+                        </div>
+                      </div>
+                      <div class="skill-item padd-15">
+                        <h5>C lang</h5>
+                        <div class="progress">
+                          <div class="progress-in" style="width: 98%"></div>
+                          <div class="skill-percent">98%</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="education padd-15">
+                    <h3 class="title">Education</h3>
+                    <div class="row">
+                      <div class="timeline-box padd-15">
+                        <div class="timeline shadow-dark">
+                          <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-date">
+                              <i class="fa fa-calendar"></i> 2021-2022
+                            </h3>
+                            <h4 class="timeline-title">
+                              10th Grade Completition
+                            </h4>
+                            <p class="timeline-text">
+                              I have successfully completed my 10th grade,
+                              acquiring a solid understanding of essential
+                              subjects. This achievement has provided me with a
+                              strong academic foundation, preparing me for
+                              further studies and future challenges.
+                            </p>
+                          </div>
+                          <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-date">
+                              <i class="fa fa-calendar"></i> 2023-2024
+                            </h3>
+                            <h4 class="timeline-title">
+                              12th Grade Completition
+                            </h4>
+                            <p class="timeline-text">
+                              I have successfully completed my 12th grade,
+                              achieving a comprehensive understanding of key
+                              subjects. This accomplishment has equipped me with
+                              essential skills and knowledge, preparing me for
+                              higher education and future professional
+                              opportunities.
+                            </p>
+                          </div>
+                          <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-date">
+                              <i class="fa fa-calendar"></i> 2024-2028
+                            </h3>
+                            <h4 class="timeline-title">
+                              Master in Computer Science
+                            </h4>
+                            <p class="timeline-text">
+                              I am currently pursuing a Computer Science degree
+                              with a specialization in Data Science, which I
+                              expect to complete in 2028. This program is
+                              providing me with essential skills in data
+                              analysis, machine learning, and programming,
+                              preparing me for a successful career in this
+                              dynamic field.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="experience padd-15">
+                    <h3 class="title">Experience</h3>
+                    <div class="row">
+                      <div class="timeline-box padd-15">
+                        <div class="timeline shadow-dark">
+                          <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-date">
+                              <i class="fa fa-calendar"></i> 2024-2025
+                            </h3>
+                            <h4 class="timeline-title">
+                              Teaching Experience in C and C++
+                            </h4>
+                            <p class="timeline-text">
+                              I have taught C and C++ programming to several
+                              students at Engineer's Hub, focusing on essential
+                              concepts and hands-on exercises. This experience
+                              allowed me to share my passion for coding and help
+                              students build their programming skills
+                              effectively
+                            </p>
+                          </div>
+                          <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-date">
+                              <i class="fa fa-calendar"></i> 2024-2025
+                            </h3>
+                            <h4 class="timeline-title">
+                              Professional Experience
+                            </h4>
+                            <p class="timeline-text">
+                              I have accumulated hands-on experience through
+                              collaborative coding projects, and tutoring in
+                              programming languages. My participation in
+                              hackathons and team initiatives has enhanced my
+                              technical skills, problem-solving abilities, and
+                              readiness for a career in Computer Science.
+                            </p>
+                          </div>
+                          <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-date">
+                              <i class="fa fa-calendar"></i> 2014-2016
+                            </h3>
+                            <h4 class="timeline-title">
+                              Future Internship Participation
+                            </h4>
+                            <p class="timeline-text">
+                              I will participate in an upcoming internship,
+                              where I plan to apply my skills and knowledge in a
+                              practical setting. This opportunity will enhance
+                              my hands-on experience and further develop my
+                              professional abilities, preparing me for future
+                              challenges in my field.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="service section" id="services">
+          <div class="container">
+            <div class="row">
+              <div class="section-title padd-15">
+                <h2>Services</h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="service-item padd-15">
+                <div class="service-item-inner">
+                  <div class="icon">
+                    <i class="fa fa-mobile-alt"></i>
+                  </div>
+                  <h4>Phone</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Alias sequi ab iste!
+                  </p>
+                </div>
+              </div>
+              <div class="service-item padd-15">
+                <div class="service-item-inner">
+                  <div class="icon">
+                    <i class="fa fa-laptop-code"></i>
+                  </div>
+                  <h4>Collaboration on projects</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Alias sequi ab iste!
+                  </p>
+                </div>
+              </div>
+              <div class="service-item padd-15">
+                <div class="service-item-inner">
+                  <div class="icon">
+                    <i class="fa fa-palette"></i>
+                  </div>
+                  <h4>Web Designing</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Alias sequi ab iste!
+                  </p>
+                </div>
+              </div>
+              <div class="service-item padd-15">
+                <div class="service-item-inner">
+                  <div class="icon">
+                    <i class="fa fa-code"></i>
+                  </div>
+                  <h4>Training</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Alias sequi ab iste!
+                  </p>
+                </div>
+              </div>
+              <div class="service-item padd-15">
+                <div class="service-item-inner">
+                  <div class="icon">
+                    <i class="fa fa-search"></i>
+                  </div>
+                  <h4>Search</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Alias sequi ab iste!
+                  </p>
+                </div>
+              </div>
+              <div class="service-item padd-15">
+                <div class="service-item-inner">
+                  <div class="icon">
+                    <i class="fa fa-bullhorn"></i>
+                  </div>
+                  <h4>Freelance Development</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Alias sequi ab iste!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--Portfolio section started-->
+        <section class="portfolio section" id="portfolio">
+          <div class="container">
+            <div class="row">
+              <div class="section-title padd-15">
+                <h2>Portfolio</h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="portfolio-heading padd-15">
+                <h2>My Latest Projects:</h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="portfolio-item padd-15">
+                <div class="portfolio-item-inner shadow-dark">
+                  <h2>A Todo App</h2>
+                </div>
+              </div>
+              <div class="portfolio-item padd-15">
+                <div class="portfolio-item-inner shadow-dark">
+                  <h2>Netflix Clone</h2>
+                </div>
+              </div>
+              <div class="portfolio-item padd-15">
+                <div class="portfolio-item-inner shadow-dark">
+                  <h2>CalCulator</h2>
+                </div>
+              </div>
+              <div class="portfolio-item padd-15">
+                <div class="portfolio-item-inner shadow-dark">
+                  <h2>Tic Tac Toe Game</h2>
+                </div>
+              </div>
+              <div class="portfolio-item padd-15">
+                <div class="portfolio-item-inner shadow-dark">
+                  <h2>Flipcart Clone</h2>
+                </div>
+              </div>
+              <div class="portfolio-item padd-15">
+                <div class="portfolio-item-inner shadow-dark">
+                  <h2>Rock, Paper, scissors Game</h2>
+                </div>
+              </div>
+              <div class="portfolio-item padd-15">
+                <div class="portfolio-item-inner shadow-dark">
+                  <h2>And Others....</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="contact section" id="contact">
+          <div class="container">
+            <div class="row">
+              <div class="section-title padd-15">
+                <h2>Contact Me</h2>
+              </div>
+            </div>
+            <h3 class="contact-title padd-15">Have You Any Questions ?</h3>
+            <h4 class="contact-sub-title padd-15">I'M AT YOUR SERVICES</h4>
+            <div class="row">
+              <div class="contact-info-item padd-15">
+                <div class="icon"><i class="fa fa-phone"></i></div>
+                <h4>Call Us On</h4>
+                <p>+0171-246039</p>
+              </div>
+              <div class="contact-info-item padd-15">
+                <div class="icon"><i class="fa fa-map-marker-alt"></i></div>
+                <h4>Office</h4>
+                <p>Gurgaon</p>
+              </div>
+              <div class="contact-info-item padd-15">
+                <div class="icon"><i class="fa fa-envelope"></i></div>
+                <h4>Email</h4>
+                <p>gautamdhiman8708311909@gmail.com</p>
+              </div>
+              <div class="contact-info-item padd-15">
+                <div class="icon"><i class="fa fa-globe-europe"></i></div>
+                <h4>Website</h4>
+                <p>www.domain.com</p>
+              </div>
+            </div>
+            <h3 class="contact-title padd-15">SEND ME AN EMAIL</h3>
+            <h4 class="contact-sub-title padd-15">
+              I'M VERY RESPONSIVE TO MESSAGES
+            </h4>
+            <div class="row">
+              <div class="contact-form padd-15">
+                <div class="row">
+                  <div class="form-item col-6 padd-15">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Name"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-item col-6 padd-15">
+                    <div class="form-group">
+                      <input
+                        type="Email"
+                        class="form-control"
+                        placeholder="Email"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-item col-12 padd-15">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Subject"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-item col-12 padd-15">
+                    <div class="form-group">
+                      <textarea
+                        name=""
+                        class="form-control"
+                        id=""
+                        placeholder="Message"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-item col-12 padd-15">
+                    <button type="submit" class="btn">Send Message</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="style-switcher">
+      <div class="style-switcher-toggler s-icon">
+        <i class="fas fa-cog fa-spin"></i>
+      </div>
+      <div class="day-night s-icon">
+        <i class="fas fa-moon"></i>
+      </div>
+      <h4>Theme Colors</h4>
+      <div class="colors">
+        <span class="color-1" onclick="setActiveStyle('color-1')"></span>
+        <span class="color-2" onclick="setActiveStyle('color-2')"></span>
+        <span class="color-3" onclick="setActiveStyle('color-3')"></span>
+        <span class="color-4" onclick="setActiveStyle('color-4')"></span>
+        <span class="color-5" onclick="setActiveStyle('color-5')"></span>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"
+      integrity="sha512-+2pW8xXU/rNr7VS+H62aqapfRpqFwnSQh9ap6THjsm41AxgA0MhFRtfrABS+Lx2KHJn82UOrnBKhjZOXpom2LQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="C:\Users\Gautam Dhiman\Documents\portfolio\js\script.js"></script>
+    <script src="C:\Users\Gautam Dhiman\Documents\portfolio\js\style-switcher.js"></script>
+  </body>
+</html>
